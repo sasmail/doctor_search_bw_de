@@ -1,0 +1,8 @@
+.venv/
+.idea/
+__pycache__/
+html_stuff
+*.pyc
+*.csv
+dummy_docu.md
+sources.md
