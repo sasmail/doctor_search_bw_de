@@ -17,12 +17,12 @@ def build_doc_dict(rows_from_results):
 
         # TODO: refactor as addresses, telephone and mail structures differ from doctor to doctor --> check if it works
         # name + address
-        doc_address_result = list(doctor.find('p', class_="anschrift-arzt").stripped_strings)
-        doc_name = doc_address_result[0] if len(doc_address_result) > 0 else ''
-        doc_street = doc_address_result[1] if len(doc_address_result) > 1 else ''
-        doc_postal = doc_address_result[2] if len(doc_address_result) > 2 else ''
-        doc_city_district = doc_address_result[3] if len(doc_address_result) > 3 else ''
-        doc_town = doc_address_result[4] if len(doc_address_result) > 4 else ''
+        doc_primary_details_result = list(doctor.find('p', class_="anschrift-arzt").stripped_strings)
+        doc_name = doc_primary_details_result[0] if len(doc_primary_details_result) > 0 else ''
+        doc_street = doc_primary_details_result[1] if len(doc_primary_details_result) > 1 else ''
+        doc_postal = doc_primary_details_result[2] if len(doc_primary_details_result) > 2 else ''
+        doc_city_district = doc_primary_details_result[3] if len(doc_primary_details_result) > 3 else ''
+        doc_town = doc_primary_details_result[4] if len(doc_primary_details_result) > 4 else ''
 
         # telephone
         contact_text = doctor.find('dd', class_='adresse').find_next('dl').find_next('dd').get_text()

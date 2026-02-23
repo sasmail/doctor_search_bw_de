@@ -22,3 +22,7 @@ def fetch_page(cleaned_url):
     except requests.exceptions.RequestException as e:
         print(f"Request failed: {e}")
         return None
+
+def build_url_with_offset(cleaned_url, offset):
+    url_with_offset = cleaned_url + f"&offset={offset}"
+    return url_with_offset
